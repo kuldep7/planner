@@ -96,4 +96,7 @@ export const USERS = [
   { name: "Rekha", type: "call" },
   { name: "Malati", type: "call" },
   { name: "Shruti", type: "message" },
+  { name: "Swati", type: "call", isDownLine: true },
+  { name: "Sunaina", type: "call", isDownLine: true },
+  { name: "Drishya", type: "call", isDownLine: true },
 ];
