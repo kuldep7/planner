@@ -55,6 +55,11 @@ export const SCHEDULE: ScheduleConstInt = {
     { name: "Manisha", type: "call" },
     { name: "Sushma", type: "call" },
   ],
+  Sunday: [
+    { name: "Swati", type: "call", isDownLine: true, customClass: "text-gray-500" },
+    { name: "Sunaina", type: "call", isDownLine: true, customClass: "text-gray-500" },
+    { name: "Drishya", type: "call", isDownLine: true, customClass: "text-gray-500" },
+  ],
 };
 
 export const USERS = [
