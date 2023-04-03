@@ -20,6 +20,7 @@ export const SCHEDULE: ScheduleConstInt = {
     { name: "Prem", type: "call" },
     { name: "Seema", type: "call" },
     { name: "Vishnupriya", type: "call" },
+    { name: "Pallavi", type: "call" },
   ],
   Tuesday: [
     { name: "Akshata", type: "call" },
@@ -29,6 +30,7 @@ export const SCHEDULE: ScheduleConstInt = {
     { name: "Priyanka", type: "message" },
     { name: "Sumita", type: "call" },
     { name: "Manasa", type: "call" },
+    { name: "Preeti", type: "call" },
   ],
   Wednesday: [
     { name: "Anantha laskshmi", type: "message" },
@@ -66,6 +68,8 @@ export const SCHEDULE: ScheduleConstInt = {
 };
 
 export const USERS = [
+  { name: "Pallavi", type: "call" },
+  { name: "Preeti", type: "call" },
   { name: "Manasa", type: "call" },
   { name: "Uday", type: "call" },
   { name: "Shivanshu", type: "call" },
