@@ -6,7 +6,7 @@ interface StateInt {
   currentWeekDay: string | undefined;
   totalUsers: number | undefined;
 }
-const compare =
+const sortBy =
   (key = "type") =>
   (a: any, b: any) => {
     if (a[key] < b[key]) {
@@ -30,17 +30,13 @@ function App() {
     setState((prev: any) => stateSet(prev, { [name]: value }));
   };
   const memoUser = useMemo(() => {
-    const totalUsers = USERS.reduce((prev, curr) => {
-      return prev + curr.length;
-    }, 0);
+    const totalUsers = USERS.length;
     setState((prev: any) => stateSet(prev, { totalUsers }));
-    return USERS.sort();
+    return USERS.sort(sortBy("day"));
   }, []);
   const currentWeekArray = useMemo(() => {
     if (state?.currentWeekDay)
-      return memoUser
-        .find((arr) => arr[0].day === state?.currentWeekDay)
-        ?.sort(compare());
+      return memoUser.filter((arr) => arr.day === state?.currentWeekDay)?.sort(sortBy());
     return null;
   }, [state?.currentWeekDay]);
   return (
@@ -52,20 +48,18 @@ function App() {
             defaultValue=""
             value={state?.currentWeekDay}
             onChange={handleWeekDaysChange}
-            className="capitalize border rounded-xs px-4 py-2 shadow-sm outline-0"
+            className="capitalize border rounded-xs px-4 py-2 shadow-sm outline-0 text-sm"
           >
-            <option disabled value="">
-              Select
-            </option>
+            <option value="">{state?.currentWeekDay ? "Clear" : "Select"}</option>
             {WEEK_DAYS.map((val) => (
-              <option key={val} value={val} className="bg-red-400">
+              <option key={val} value={val} className="bg-red-400 text-sm">
                 {val}
               </option>
             ))}
           </select>
-          {state?.currentWeekDay && currentWeekArray?.length && (
+          {state?.currentWeekDay && currentWeekArray && currentWeekArray.length > 0 && (
             <span className="ml-3">
-              Total : {currentWeekArray?.length} of {state?.totalUsers}
+              Total : {currentWeekArray?.length} of {USERS.length}
             </span>
           )}
         </div>
@@ -73,12 +67,12 @@ function App() {
         {state?.currentWeekDay && (
           <div className="mt-4 ">
             <ul className="divide-y w-64 border rounded-md shadow-md transition-all duration-1000 ease-in-out">
-              {currentWeekArray ? (
+              {currentWeekArray && currentWeekArray.length > 0 ? (
                 currentWeekArray.map((obj: any) => {
                   return (
                     <li
                       key={obj.name}
-                      className="flex justify-between px-2 py-1 hover:bg-slate-100"
+                      className="flex justify-between items-center px-2 py-1 text-sm hover:bg-slate-100 hover:cursor-pointer"
                     >
                       <span className="flex flex-col capitalize">
                         {obj.name}
@@ -86,8 +80,8 @@ function App() {
                       </span>
 
                       <span
-                        className={`capitalize text-sm ${
-                          obj.type === "call" ? "text-slate-800" : "text-slate-500"
+                        className={`capitalize text-[.6rem] font-semibold  ${
+                          obj.type === "call" ? "text-green-700" : "text-blue-700"
                         } ${obj.customClass ? obj.customClass : ""}`}
                       >
                         {obj.type}
@@ -96,7 +90,7 @@ function App() {
                   );
                 })
               ) : (
-                <li className="p-2 text-red-400 text-center animate-pulse">
+                <li className=" flex items-center justify-center p-2 text-red-400 text-center animate-pulse min-h-[10rem]">
                   No Schedule
                 </li>
               )}
