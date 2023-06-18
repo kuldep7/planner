@@ -7,114 +7,252 @@ export const WEEK_DAYS = [
   "Saturday",
   "Sunday",
 ];
-interface ScheduleConstInt {
-  [key: string]: object[];
+interface UserConstInt {
+  [key: string]: any;
 }
 
-export const SCHEDULE: ScheduleConstInt = {
-  Monday: [
-    { name: "Akshay", type: "message" },
-    { name: "Bency", type: "message" },
-    { name: "Chaitra", type: "message" },
-    { name: "Madhu", type: "call" },
-    { name: "Prem", type: "call" },
-    { name: "Seema", type: "call" },
-    { name: "Vishnupriya", type: "call" },
-    { name: "Pallavi", type: "call" },
-    { name: "Deepika", type: "call" },
+export const USERS: UserConstInt[] = [
+  [
+    {
+      name: "Akshay",
+      type: "message",
+      day: "Monday",
+    },
+    {
+      name: "Bency",
+      type: "message",
+      day: "Monday",
+    },
+    {
+      name: "Chaitra",
+      type: "message",
+      day: "Monday",
+    },
+    {
+      name: "Madhu",
+      type: "call",
+      day: "Monday",
+    },
+    {
+      name: "Prem",
+      type: "call",
+      day: "Monday",
+    },
+    {
+      name: "Seema",
+      type: "call",
+      day: "Monday",
+    },
+    {
+      name: "Vishnupriya",
+      type: "call",
+      day: "Monday",
+    },
+    {
+      name: "Pallavi",
+      type: "call",
+      day: "Monday",
+    },
+    {
+      name: "Deepika",
+      type: "call",
+      day: "Monday",
+    },
   ],
-  Tuesday: [
-    { name: "Akshata", type: "call" },
-    { name: "Harshita", type: "call" },
-    { name: "Latha", type: "call" },
-    { name: "Nivedita", type: "message" },
-    { name: "Priyanka", type: "message" },
-    { name: "Sumita", type: "call" },
-    { name: "Manasa", type: "call" },
-    { name: "Preeti", type: "call" },
+  [
+    {
+      name: "Akshata",
+      type: "call",
+      day: "Tuesday",
+    },
+    {
+      name: "Harshita",
+      type: "call",
+      day: "Tuesday",
+    },
+    {
+      name: "Latha",
+      type: "call",
+      day: "Tuesday",
+    },
+    {
+      name: "Nivedita",
+      type: "message",
+      day: "Tuesday",
+    },
+    {
+      name: "Priyanka",
+      type: "message",
+      day: "Tuesday",
+    },
+    {
+      name: "Sumita",
+      type: "call",
+      day: "Tuesday",
+    },
+    {
+      name: "Manasa",
+      type: "call",
+      day: "Tuesday",
+    },
+    {
+      name: "Preeti",
+      type: "call",
+      day: "Tuesday",
+    },
   ],
-  Wednesday: [
-    { name: "Anantha laskshmi", type: "message" },
-    { name: "Bharath", type: "message" },
-    { name: "Jithendra", type: "call" },
-    { name: "Jyoti", type: "call" },
-    { name: "Malati", type: "call" },
-    { name: "Narasimha", type: "message" },
-    { name: "Rekha", type: "call" },
-    { name: "Uday", type: "call" },
-    { name: "Darshan", type: "call" },
+  [
+    {
+      name: "Anantha laskshmi",
+      type: "message",
+      day: "Wednesday",
+    },
+    {
+      name: "Bharath",
+      type: "message",
+      day: "Wednesday",
+    },
+    {
+      name: "Jithendra",
+      type: "call",
+      day: "Wednesday",
+    },
+    {
+      name: "Jyoti",
+      type: "call",
+      day: "Wednesday",
+    },
+    {
+      name: "Malati",
+      type: "call",
+      day: "Wednesday",
+    },
+    {
+      name: "Narasimha",
+      type: "message",
+      day: "Wednesday",
+    },
+    {
+      name: "Rekha",
+      type: "call",
+      day: "Wednesday",
+    },
+    {
+      name: "Uday",
+      type: "call",
+      day: "Wednesday",
+    },
+    {
+      name: "Darshan",
+      type: "call",
+      day: "Wednesday",
+    },
   ],
-  Thursday: [
-    { name: "Ahuti", type: "call" },
-    { name: "Astha", type: "message" },
-    { name: "Chandni", type: "call" },
-    { name: "Kavita", type: "message" },
-    { name: "Shruti", type: "message" },
-    { name: "Venkatesh", type: "call" },
-    { name: "Vikram", type: "call" },
-    { name: "Shivanshu", type: "call" },
-    { name: "Sundar", type: "call" },
+  [
+    {
+      name: "Ahuti",
+      type: "call",
+      day: "Thursday",
+    },
+    {
+      name: "Astha",
+      type: "message",
+      day: "Thursday",
+    },
+    {
+      name: "Chandni",
+      type: "call",
+      day: "Thursday",
+    },
+    {
+      name: "Kavita",
+      type: "message",
+      day: "Thursday",
+    },
+    {
+      name: "Shruti",
+      type: "message",
+      day: "Thursday",
+    },
+    {
+      name: "Venkatesh",
+      type: "call",
+      day: "Thursday",
+    },
+    {
+      name: "Vikram",
+      type: "call",
+      day: "Thursday",
+    },
+    {
+      name: "Shivanshu",
+      type: "call",
+      day: "Thursday",
+    },
+    {
+      name: "Sundar",
+      type: "call",
+      day: "Thursday",
+    },
   ],
-  Friday: [
-    { name: "Akhila", type: "call" },
-    { name: "Bhanu", type: "message" },
-    { name: "Jaya", type: "call" },
-    { name: "Jaydutt", type: "call" },
-    { name: "Manisha", type: "call" },
-    { name: "Sushma", type: "call" },
-    { name: "Kavya", type: "call" },
+  [
+    {
+      name: "Akhila",
+      type: "call",
+      day: "Friday",
+    },
+    {
+      name: "Bhanu",
+      type: "message",
+      day: "Friday",
+    },
+    {
+      name: "Jaya",
+      type: "call",
+      day: "Friday",
+    },
+    {
+      name: "Jaydutt",
+      type: "call",
+      day: "Friday",
+    },
+    {
+      name: "Manisha",
+      type: "call",
+      day: "Friday",
+    },
+    {
+      name: "Sushma",
+      type: "call",
+      day: "Friday",
+    },
+    {
+      name: "Kavya",
+      type: "call",
+      day: "Friday",
+    },
   ],
-  Sunday: [
-    { name: "Swati", type: "call", isDownLine: true, customClass: "text-gray-500" },
-    { name: "Sunaina", type: "call", isDownLine: true, customClass: "text-gray-500" },
-    { name: "Drishya", type: "call", isDownLine: true, customClass: "text-gray-500" },
+  [
+    {
+      name: "Swati",
+      type: "call",
+      isDownLine: true,
+      customClass: "text-gray-500",
+      day: "Sunday",
+    },
+    {
+      name: "Sunaina",
+      type: "call",
+      isDownLine: true,
+      customClass: "text-gray-500",
+      day: "Sunday",
+    },
+    {
+      name: "Drishya",
+      type: "call",
+      isDownLine: true,
+      customClass: "text-gray-500",
+      day: "Sunday",
+    },
   ],
-};
-
-export const USERS = [
-  { name: "Kavya", type: "call" },
-  { name: "Deepika", type: "call" },
-  { name: "Sundar", type: "call" },
-  { name: "Darshan", type: "call" },
-  { name: "Pallavi", type: "call" },
-  { name: "Preeti", type: "call" },
-  { name: "Manasa", type: "call" },
-  { name: "Uday", type: "call" },
-  { name: "Shivanshu", type: "call" },
-  { name: "Harshita", type: "call" },
-  { name: "Latha", type: "call" },
-  { name: "Venkatesh", type: "call" },
-  { name: "Akshata", type: "call" },
-  { name: "Narasimha", type: "message" },
-  { name: "Anantha laskshmi", type: "message" },
-  { name: "Manisha", type: "call" },
-  { name: "Priyanka", type: "message" },
-  { name: "Vishnupriya", type: "call" },
-  { name: "Kavita", type: "message" },
-  { name: "Astha", type: "message" },
-  { name: "Bharath", type: "message" },
-  { name: "Prem", type: "call" },
-  { name: "Chandni", type: "call" },
-  { name: "Akhila", type: "call" },
-  { name: "Vikram", type: "call" },
-  { name: "Ahuti", type: "call" },
-  { name: "Madhu", type: "call" },
-  { name: "Chaitra", type: "message" },
-  { name: "Bency", type: "message" },
-  { name: "Jithendra", type: "call" },
-  { name: "Nivedita", type: "message" },
-  { name: "Bhanu", type: "message" },
-  { name: "Sushma", type: "call" },
-  { name: "Seema", type: "call" },
-  { name: "Jyoti", type: "call" },
-  { name: "Jaya", type: "call" },
-  { name: "Akshay", type: "message" },
-  { name: "Sumita", type: "call" },
-  { name: "Jaydutt", type: "call" },
-  { name: "Rekha", type: "call" },
-  { name: "Malati", type: "call" },
-  { name: "Shruti", type: "message" },
-  { name: "Swati", type: "call", isDownLine: true },
-  { name: "Sunaina", type: "call", isDownLine: true },
-  { name: "Drishya", type: "call", isDownLine: true },
 ];

@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-import { SCHEDULE, USERS, WEEK_DAYS } from "./constants";
+import { USERS, WEEK_DAYS } from "./constants";
 
 interface StateInt {
   currentWeekDay: string | undefined;
+  totalUsers: number | undefined;
 }
-interface ScheduleInt {
-  name: string;
-  type: string;
-}
-function compare(a: any, b: any) {
-  if (a.type < b.type) {
-    return -1;
-  }
-  if (a.type > b.type) {
-    return 1;
-  }
-  return 0;
-}
+const compare =
+  (key = "type") =>
+  (a: any, b: any) => {
+    if (a[key] < b[key]) {
+      return -1;
+    }
+    if (a[key] > b[key]) {
+      return 1;
+    }
+    return 0;
+  };
 function App() {
   const [state, setState] = useState<StateInt>();
   const stateSet = (prevState: StateInt, data: object): StateInt => {
@@ -30,7 +29,20 @@ function App() {
     const { name, value } = e.target;
     setState((prev: any) => stateSet(prev, { [name]: value }));
   };
-
+  const memoUser = useMemo(() => {
+    const totalUsers = USERS.reduce((prev, curr) => {
+      return prev + curr.length;
+    }, 0);
+    setState((prev: any) => stateSet(prev, { totalUsers }));
+    return USERS.sort();
+  }, []);
+  const currentWeekArray = useMemo(() => {
+    if (state?.currentWeekDay)
+      return memoUser
+        .find((arr) => arr[0].day === state?.currentWeekDay)
+        ?.sort(compare());
+    return null;
+  }, [state?.currentWeekDay]);
   return (
     <div className="min-h-screen">
       <div className="flex justify-center items-center flex-col h-screen">
@@ -51,9 +63,9 @@ function App() {
               </option>
             ))}
           </select>
-          {state?.currentWeekDay && SCHEDULE[state.currentWeekDay]?.length && (
+          {state?.currentWeekDay && currentWeekArray?.length && (
             <span className="ml-3">
-              Total : {SCHEDULE[state.currentWeekDay]?.length} of {USERS.length}
+              Total : {currentWeekArray?.length} of {state?.totalUsers}
             </span>
           )}
         </div>
@@ -61,8 +73,8 @@ function App() {
         {state?.currentWeekDay && (
           <div className="mt-4 ">
             <ul className="divide-y w-64 border rounded-md shadow-md transition-all duration-1000 ease-in-out">
-              {SCHEDULE[state.currentWeekDay] ? (
-                SCHEDULE[state.currentWeekDay]?.sort(compare).map((obj: any) => {
+              {currentWeekArray ? (
+                currentWeekArray.map((obj: any) => {
                   return (
                     <li
                       key={obj.name}
