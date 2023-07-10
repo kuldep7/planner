@@ -108,6 +108,11 @@ export const USERS: UserConstInt[] = [
     day: "Wednesday",
   },
   {
+    name: "Varsha",
+    type: "call",
+    day: "Wednesday",
+  },
+  {
     name: "Jithendra",
     type: "call",
     day: "Wednesday",
@@ -218,6 +223,10 @@ export const USERS: UserConstInt[] = [
     day: "Friday",
   },
   {
+    name: "Dilip",
+    type: "call",
+    day: "Friday",
+  },  {
     name: "Kavya",
     type: "call",
     day: "Friday",
